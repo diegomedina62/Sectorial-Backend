@@ -2,12 +2,22 @@ require("dotenv").config()
 const express = require("express")
 const app = express()
 
+//import Routers
+const categoriesRouter = require("./routes/categories")
+const subcategoriesRouter = require("./routes/subcategories")
+const subjectsRouter = require("./routes/subjects")
+
 //initial route
 app.get("/", (req, res) => {
   res.send(
     "Bienvenido a la API de gestion de SQL para sectorial, by Diego Medina"
   )
 })
+
+//routes
+app.use("/categories", categoriesRouter)
+app.use("/subcategories", subcategoriesRouter)
+app.use("/subjects", subjectsRouter)
 
 //SQL connection
 const sequelize = require("./database/db")
