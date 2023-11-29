@@ -7,6 +7,9 @@ const categoriesRouter = require("./routes/categories")
 const subcategoriesRouter = require("./routes/subcategories")
 const subjectsRouter = require("./routes/subjects")
 
+//middlewares
+app.use(express.json())
+
 //initial route
 app.get("/", (req, res) => {
   res.send(
@@ -21,11 +24,12 @@ app.use("/subjects", subjectsRouter)
 
 //SQL connection
 const sequelize = require("./database/db")
+const { modelDefinitions } = require("./models/models")
 const sqlConnect = async () => {
   try {
     await sequelize.authenticate()
     console.log("Connection has been established successfully.")
-    require("./models/models")()
+    modelDefinitions()
     await sequelize.sync({ alter: true })
     console.log("All models were synchronized successfully.")
   } catch (error) {
