@@ -7,8 +7,8 @@ const {
 const router = express.Router()
 
 //Routes
-router.route('/').get(getAllSubcategories).post(createSubcategory)
+router.route('/').post(createSubcategory)
 
-router.route('/:id').delete(deleteSubcategorie)
+router.route('/:id').delete(deleteSubcategorie).get(getAllSubcategories)
 
 module.exports = router

@@ -16,10 +16,13 @@ const createSubcategory = async (req, res) => {
 }
 
 const getAllSubcategories = async (req, res) => {
+  const { id } = req.params
   try {
-    const subcategories = await Subcategory.findAll({ where: req.body })
+    const subcategories = await Subcategory.findAll({
+      where: { categoryIdKey: id }
+    })
     res.status(200).json({
-      msg: 'categories selected',
+      msg: 'subcategories selected',
       result: subcategories
     })
   } catch (error) {
