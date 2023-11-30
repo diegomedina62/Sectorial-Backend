@@ -1,12 +1,12 @@
 //importing models
-const { Category } = require("../models/models")
+const { Category } = require('../models/models')
 
 //controllers
 const createCategory = async (req, res) => {
   try {
     const newCategory = await Category.create(req.body)
     res.status(201).json({
-      msg: "Category created",
+      msg: 'Category created',
       result: newCategory
     })
   } catch (error) {
@@ -18,11 +18,11 @@ const getAllCategories = async (req, res) => {
   try {
     const categories = await Category.findAll()
     res.status(200).json({
-      msg: "categories selected",
+      msg: 'categories selected',
       result: categories
     })
   } catch (error) {
-    res.status(404).json({ msg: "Categories not found" })
+    res.status(404).json({ msg: 'Categories not found' })
   }
 }
 
@@ -35,7 +35,7 @@ const deleteCategory = async (req, res) => {
     }
     await category.destroy()
 
-    res.status(200).json({ msg: "Category deleted" })
+    res.status(200).json({ msg: 'Category deleted' })
   } catch (error) {
     console.log(error)
     res.status(500).json({ msg: "couldn't delete Category" })

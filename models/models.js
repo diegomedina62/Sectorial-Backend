@@ -1,10 +1,10 @@
-const { Sequelize, DataTypes } = require("sequelize")
-const sequelize = require("../database/db")
+const { Sequelize, DataTypes } = require('sequelize')
+const sequelize = require('../database/db')
 
 //creacion de Squemas
 
 const Category = sequelize.define(
-  "Category",
+  'Category',
   {
     id_key: {
       type: DataTypes.INTEGER,
@@ -23,7 +23,7 @@ const Category = sequelize.define(
 )
 
 const Subcategory = sequelize.define(
-  "Subcategory",
+  'Subcategory',
   {
     id_key: {
       type: DataTypes.INTEGER,
@@ -31,7 +31,9 @@ const Subcategory = sequelize.define(
       autoIncrement: true
     },
     SubcategoryName: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false
     }
   },
   {
@@ -40,7 +42,7 @@ const Subcategory = sequelize.define(
 )
 
 const Subject = sequelize.define(
-  "Subject",
+  'Subject',
   {
     id_key: {
       type: DataTypes.INTEGER,
