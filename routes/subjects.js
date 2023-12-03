@@ -1,18 +1,14 @@
-const express = require("express")
+const express = require('express')
+const {
+  deleteSubject,
+  getAllSubjects,
+  createSubject
+} = require('../controllers/subjects')
 const router = express.Router()
 
 //Routes
-router
-  .route("/")
-  .get((req, res) => {
-    res.send("get subject")
-  })
-  .post((req, res) => {
-    res.send("post subject")
-  })
+router.route('/').post(createSubject)
 
-router.route("/:id").delete((req, res) => {
-  res.send("delete subject")
-})
+router.route('/:id').delete(deleteSubject).get(getAllSubjects)
 
 module.exports = router
