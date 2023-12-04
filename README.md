@@ -6,9 +6,12 @@ para ver el FrontEnd con el cual puede gestionar la base de datos, visitar el re
 
 Vea el archivo "Prueba Técnica Desarrollador Junior para Sectorial S.pdf" en los archivos del repositorio para encontrar una explicacion del proyecto
 
-#para correrlo localmente
+## para correrlo localmente
 
 agregue un archivo .env en la carpeta del proyecto con las siguientes variables correspondientes a su base de datos SQL local
+
 SQL_DATABASE=
-SQL_USERNAME=
-SQL_PASSWORD=
+
+SQL_USERNAME= 
+
+SQL_PASSWORD= 
